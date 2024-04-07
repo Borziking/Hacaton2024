@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Чтение файла</title>
+  </head>
+  <body>
+    <input type="file" id="file" />
+    <button>Чтение файла</button>
+
+    <script>
+      document.querySelector("button").addEventListener("click", function () {
+        let file = document.getElementById("file").files[0];
+        let reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = function () {
+          console.log(reader.result);
+        };
+        reader.onerror = function () {
+          console.log(reader.error);
+        };
+      });
+    </script>
+  </body>
+</html>
